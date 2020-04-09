@@ -6,10 +6,10 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/login'
-  },
+  // {
+  //   path: '/',
+  //   redirect: '/login'
+  // },
   {
     path: '/login',
     component:login
@@ -23,13 +23,13 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-router.beforeEach((to,from,next)=>{
-  /* to表示访问的路径 */
-  /* from表示从那个路径来 */
-  /* next表示放行 */
-  if(to.path==='/login') return next();
-  const tokenStr = window.sessionStorage.getItem('token')
-  if(!tokenStr) return next('/login')
-  next()
-})
+// router.beforeEach((to,from,next)=>{
+//   /* to表示访问的路径 */
+//   /* from表示从那个路径来 */
+//   /* next表示放行 */
+//   if(to.path==='/login') return next();
+//   const tokenStr = window.sessionStorage.getItem('token')
+//   if(!tokenStr) return next('/login')
+//   next()
+// })
 export default router

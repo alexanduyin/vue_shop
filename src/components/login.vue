@@ -16,7 +16,7 @@
     </el-form-item>
     <!-- 按钮区域 -->
     <el-form-item class="btns">
-    <el-button type="primary" @click="login">登录</el-button>
+    <el-button type="primary" @click="loginHome">登录</el-button>
     <el-button type="info" @click="loginFormReset">重置</el-button>
     </el-form-item>
     </el-form>
@@ -50,17 +50,17 @@ export default {
     loginFormReset(){
       this.$refs.loginFormRef.resetFields();
     },
-    login(){
-      this.$refs.loginFormRef.validate(async valid=>{
-        if(!valid) return;
-        const {data:res}=await this.$http.post('login',this.loginForm);
-        if(res.meta.status!==200) return this.$message.error('登录失败');
-        /* 因为登录成功的代码是200，不是200的话说明登录失败 */
-        this.$message.success('登录成功')
-        window.sessionStorage.setItem("token",res.data.token)
-        /* 当登录成功后，服务器返回data的值包含token的身份令牌，存储至window的sessionstorage中 */
-        this.$router.push("/home")
-      })
+    loginHome () {
+      // this.$refs.loginFormRef.validate(async valid=>{
+      //   if(!valid) return;
+      //   const {data:res}=await this.$http.post('login',this.loginForm);
+      //   if(res.meta.status!==200) return this.$message.error('登录失败');
+      //   /* 因为登录成功的代码是200，不是200的话说明登录失败 */
+      //   this.$message.success('登录成功')
+      //   window.sessionStorage.setItem("token",res.data.token)
+      //   /* 当登录成功后，服务器返回data的值包含token的身份令牌，存储至window的sessionstorage中 */
+       this.$router.push("/home")
+      // })
     }
   }
 }
