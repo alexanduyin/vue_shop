@@ -2,26 +2,36 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import login from '../components/login.vue'
 import Home from '../views/Home.vue'
-
+import welcome from '../components/welcome.vue'
+import users from '../components/users/users.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/login'
-  // },
-  {
-    path: '/login',
-    component:login
-  },
-  {
-    path:'/home',
-    component:Home
-  }
-]
-
 const router = new VueRouter({
-  routes
+  routes: [
+    {
+      path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      component: login
+    },
+    {
+      path: '/home',
+      component: Home,
+      redirect: '/welcome',
+      children: [
+        {
+          path: '/welcome',
+          component: welcome
+        },
+        {
+          path: '/1',
+          component: users
+        }
+      ]
+    }
+  ]
 })
 // router.beforeEach((to,from,next)=>{
 //   /* to表示访问的路径 */

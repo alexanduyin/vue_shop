@@ -22,33 +22,33 @@
     </el-form>
    </div>
   </div>
-  
+
 </template>
 
 <script>
 export default {
-    name:'login',
-    data(){
-      return {
-       loginForm :{
-          username:'zss',
-          password:'123123'
-        },
-        loginFormRules: {
-          username: [
-            { required: true, message: '请输入账号', trigger: 'blur' },
-            { min: 3, max: 10, message: 'mima长度在 3 到 10 个字符', trigger: 'blur'}
-          ],  
-          password: [
-            { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 6, max: 15, message: 'mima长度在 6 到 15 个字符', trigger: 'blur'}
-          ]
+  name: 'login',
+  data () {
+    return {
+      loginForm: {
+        username: 'zss',
+        password: '123123'
+      },
+      loginFormRules: {
+        username: [
+          { required: true, message: '请输入账号', trigger: 'blur' },
+          { min: 3, max: 10, message: 'mima长度在 3 到 10 个字符', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 15, message: 'mima长度在 6 到 15 个字符', trigger: 'blur' }
+        ]
       }
     }
-},
-  methods : {
-    loginFormReset(){
-      this.$refs.loginFormRef.resetFields();
+  },
+  methods: {
+    loginFormReset () {
+      this.$refs.loginFormRef.resetFields()
     },
     loginHome () {
       // this.$refs.loginFormRef.validate(async valid=>{
@@ -59,7 +59,7 @@ export default {
       //   this.$message.success('登录成功')
       //   window.sessionStorage.setItem("token",res.data.token)
       //   /* 当登录成功后，服务器返回data的值包含token的身份令牌，存储至window的sessionstorage中 */
-       this.$router.push("/home")
+      this.$router.push('/home')
       // })
     }
   }
