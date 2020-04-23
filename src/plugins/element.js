@@ -14,7 +14,8 @@ import Element, {
   Row,
   Col,
   Table,
-  TableColumn
+  TableColumn,
+  Switch
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -32,5 +33,6 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Switch)
 Vue.use(Element)
 Vue.prototype.$message = Message
